@@ -23,14 +23,14 @@ apt-get install libsqlite3-dev -y
 
 cd /usr/local/src
 
-wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/certified-asterisk-13.1-current.tar.gz
+wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.10.2-rc1+2.10.2-rc1.tar.gz
 
 apt-get install libpri1.4 -y
 
-wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-2.10.2-rc1+2.10.2-rc1.tar.gz
+wget http://downloads.asterisk.org/pub/telephony/certified-asterisk/asterisk-certified-13.1-current.tar.gz
 
 tar -zxf dahdi-linux-complete-2.10.2-rc1+2.10.2-rc1.tar.gz
-tar -zxf certified-asterisk-13.1-current.tar.gz
+tar -zxf asterisk-certified-13.1-current.tar.gz
 
 cd /usr/local/src/certified-asterisk-13.1-cert2/contrib/scripts
 ./install_prereq install
@@ -40,10 +40,13 @@ make
 make install
 make config
 
-cd /usr/local/src/certified-asterisk-13.1-cert2
+cd /usr/local/src/asterisk-certified-13.1-cert8
+contrib/scripts/install_prereq install
 ./configure
 make menuselect.makeopts
 menuselect/menuselect --enable CORE-SOUNDS-FR-GSM --enable CORE-SOUNDS-FR-ULAW --enable EXTRA-SOUNDS-FR-GSM --enable EXTRA-SOUNDS-FR-ULA --enable pbx_ael --enable aelparse --enable app_meetme --enable MOH-OPSOUND-ULAW --enable chan_sip menuselect.makeopts
 make install
 make samples
 make config
+
+echo OK OK OK OK OK OK OK OK OK
